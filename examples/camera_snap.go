@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/jonmol/gphoto2"
+	"github.com/curreta/gphoto2"
 )
 
 // take a photo

@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/jonmol/gphoto2"
+	"github.com/curreta/gphoto2"
 )
 
 func setShutterSpeed(name string, c *gphoto2.Camera) {

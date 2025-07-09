@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/jonmol/gphoto2"
+	"github.com/curreta/gphoto2"
 )
 
 // Capture images in preview mode

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/jonmol/gphoto2"
+	"github.com/curreta/gphoto2"
 )
 
 var (
