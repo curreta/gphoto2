@@ -120,6 +120,22 @@ const (
 	LogData
 )
 
+// Camera Event Types
+const (
+	// EventUnknown represents an unknown event
+	EventUnknown = 0
+	// EventTimeout represents a timeout (no event occurred)
+	EventTimeout = 1
+	// EventFileAdded represents a new file was added to the camera
+	EventFileAdded = 2
+	// EventFolderAdded represents a new folder was added to the camera
+	EventFolderAdded = 3
+	// EventCaptureComplete represents that image capture is complete
+	EventCaptureComplete = 4
+	// EventFileChanged represents that a file was changed on the camera
+	EventFileChanged = 5
+)
+
 //File types
 const (
 	//FileTypePreview is a preview of an image

@@ -4,6 +4,10 @@ Partial Go bindings for http://www.gphoto.org/proj/libgphoto2/
 
 ## History
 
+I forked the code in order to add camera event listening.
+
+This repo has been forked from https://github.com/jonmol/ghoto2. That repo has the following history section:
+
 Much of the code is copied from and/or insipired of https://github.com/szank/gphoto which seems abandonend and had a couple of bugs. I wanted to write a simple 3D-scanner and stop motion program and this is an artefact from it. So it's not claiming to or trying to cover the whole library but you can do a lot, and I'm very open to suggestions and/or merge requests. I only have access to one Nikon camera so it's not tested with any other brand, and it seems like all camera manufacturers have their own quirks.
 
 ## Installlation
@@ -34,8 +38,10 @@ func main() {
 }
 ```
 
-
 ## Notes
 
-For Nikon (I don't know about other cameras as I haven't been able to test with them) you want to put the DSLR in manual mode, and turn auto focus off typically. Manual mode is necessary to be able to change many of the settings, and to be able to enter live view mode for instance. Manual focus makes taking shots a lot more reliable and fast as the camera won't have to focus for each shot.
+Notes from curreta/gphoto2
 
+From kept from jonmol/gphoto2
+
+For Nikon (I don't know about other cameras as I haven't been able to test with them) you want to put the DSLR in manual mode, and turn auto focus off typically. Manual mode is necessary to be able to change many of the settings, and to be able to enter live view mode for instance. Manual focus makes taking shots a lot more reliable and fast as the camera won't have to focus for each shot.

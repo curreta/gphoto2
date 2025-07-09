@@ -31,6 +31,7 @@ import "C"
 import (
 	"bytes"
 	"io"
+	"os"
 	"reflect"
 	"unsafe"
 )
@@ -89,6 +90,47 @@ func (file *CameraFilePath) DownloadImage(buffer io.Writer, leaveOnCamera bool) 
 		C.gp_camera_file_delete(file.camera.gpCamera, fileDir, fileName, file.camera.Ctx.gpContext)
 	}
 	return err
+}
+
+// GetFile retrieves a file from the camera by folder and name
+func (c *Camera) GetFile(folder, filename string, fileType int) (*CameraFilePath, error) {
+	if c.gpCamera == nil {
+		return nil, newError("Camera disconnected", Error)
+	}
+
+	// Create a CameraFilePath for the specified file
+	filePath := &CameraFilePath{
+		Name:   filename,
+		Folder: folder,
+		Dir:    false,
+		camera: c,
+	}
+
+	return filePath, nil
+}
+
+// DownloadAndSave downloads a file from the camera and saves it to the specified path
+func (c *Camera) DownloadAndSave(folder, filename, savePath string, deleteFromCamera bool) error {
+	if c.gpCamera == nil {
+		return newError("Camera disconnected", Error)
+	}
+
+	// Create temporary file for download
+	file, err := os.Create(savePath)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	// Create camera file path and download
+	cameraFilePath := &CameraFilePath{
+		Name:   filename,
+		Folder: folder,
+		camera: c,
+	}
+
+	// Download to the file
+	return cameraFilePath.DownloadImage(file, deleteFromCamera)
 }
 
 func newCameraFilePath(input *cameraFilePathInternal, camera *Camera) *CameraFilePath {
